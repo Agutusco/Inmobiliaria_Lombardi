@@ -54,3 +54,35 @@ Esta base de datos permite administrar de manera eficiente el proceso de visitas
 - Registro detallado de las características de la propiedad
 
 En conclusión, esta base de datos proporciona una estructura para organizar y gestionar eficientemente las operaciones de visitas a las propiedades optimizando el trabajo.
+
+
+
+
++------------------+        +-----------------------+        +------------------+
+|      INQUILINO   |        |       VISITA          |        |     INMOBILIARIA |
++------------------+        +-----------------------+        +------------------+
+| inquilinoID (PK) |<>-----o| idReserva (PK)        |o-------| idRestaurante(PK)|
+| nombre           |        | idCliente (FK)        |        | nombre           |
+| telefono         |        | idMesa (FK)           |        | direccion        |
+| correo           |        | idEmpleado (FK)       |        | telefono         |
++------------------+        | fecha                 |        +------------------+
+                            | cancelacion           |                  |
+                            +-----------------------+                  |
+                                    |                                  |
+                                    |                                  |
+                                    v                                  v
++------------------+        +------------------+             +-------------------+
+|     Empleado     |        |      Mesa        |             |     Dueno         |
++------------------+        +------------------+             +-------------------+
+| idEmpleado (PK)  |        | idMesa (PK)      |             | idDueno (PK)      |
+| nombre           |        | idRestaurante(FK)|             | nombre            |
+| telefono         |        | capacidad        |             | correo            |
+| correo           |        | disponible       |             | telefono          |
+| idRestaurante(FK)|        +------------------+             +-------------------+
++------------------+                  |
+                             +-------------------+
+                             |   TipoReserva     |
+                             +-------------------+
+                             | idTipoReserva(PK) |
+                             | tipo              |
+                             +-------------------+
