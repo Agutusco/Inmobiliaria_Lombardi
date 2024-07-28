@@ -1,0 +1,17 @@
+propiedadID,ubicacion,departamento,ambientes,jardin,baños,contratoID,inmobiliariaID,precio,ocupada,moneda
+1,Avenida Siempreviva 123 Springfield,0,Living-comedor cocina 2 dormitorios,1,2,1,1,15000000,0,ARS
+2,Calle de los Suspiros 456 Gotham City,1,Estudio dormitorio,0,1,2,1,80000,1,USD
+3,Calle de las Flores 789 Metropolis,0,Living cocina 2 dormitorios dependencia,1,2,3,1,200000000,0,ARS
+4,Callejon sin Salida 10 Ciudad Gotica,0,Living cocina dormitorio,0,1,4,1,100000,1,USD
+5,Calle Principal 15 Pueblo Pajaro,0,Living-comedor cocina 3 dormitorios,1,2,5,1,180000000,0,ARS
+6,Avenida Siempreviva 456 Springfield,1,Estudio dormitorio,0,1,6,1,70000,1,USD
+7,Calle de los Suspiros 789 Gotham City,0,Living cocina 2 dormitorios,1,2,7,1,120000000,0,ARS
+8,Calle de Flores 10 Metropolis,0,Living cocina dormitorio,0,1,8,1,90000,1,USD
+9,Callejon sin Salida 15 Ciudad Gotica,0,Living-comedor cocina 3 dormitorios,1,2,9,1,160000000,0,ARS
+10,Calle Principal 456 Pueblo Pajaro,1,Estudio dormitorio,0,1,10,1,60000,1,USD
+11,Avenida Siempreviva 789 Springfield,0,Living cocina 2 dormitorios,1,2,11,1,110000000,0,ARS
+12,Calle de los Suspiros 10 Gotham City,0,Living cocina dormitorio,0,1,12,1,80000,1,USD
+13,Calle de Flores 15 Metropolis,0,Living-comedor cocina 3 dormitorios,1,2,13,1,150000000,0,ARS
+14,Callejon sin Salida 456 Ciudad Gotica,1,Estudio dormitorio,0,1,14,1,70000,1,USD
+15,Calle Principal 789 Pueblo Pajaro,0,Living cocina 2 dormitorios,1,2,15,1,120000000,0,ARS
+16,Avenida Siempreviva 1010 Springfield,0,Living comedor cocina 2 dormitorios oficina,1,3,16,1,20000000,0,ARS
