@@ -1,9 +1,13 @@
+# Entrega Proyecto MySQL
+
+## Segunda Pre-Entrega del proyecto final
+
 ##  Creación de una DB para visitas de una inmobiliaria
 
-## Problema:
+### Problema:
 El equipo de una inmobiliaria se encuentra realizando un sistema de visitas a distintas propiedades para mostrarlas. Nos vemos en la obligación de crear una base de datos para manejar de manera eficiente todas las operaciones relacionadas con las visitas.
 
-## Descripcion del problema:
+### Descripcion del problema:
 1- **Inquilinos y empleados:** Necesitamos una base de datos que nos permita registrar la información de los inquilinos que quieren realizar una visita hacia alguna propiedad y que empleado estará involucrado en el mismo. 
 
 2- **Registro de la visita:** Debemos utilizar un sistema donde se pueda registrar en qué fecha y hora se llevará a cabo la visita.
@@ -13,7 +17,7 @@ El equipo de una inmobiliaria se encuentra realizando un sistema de visitas a di
 ### Objetivo:
 Diseñar una base de datos relacional que pueda satisfacer las necesidades en cuanto a la administración de las visitas y quienes participaran en ellas. Esta base de datos debe ser ágil, simple y fácil de mantener para una mejor eficiencia.
 
-## Descripción de la base de datos - Gestión de visitas a propiedades
+### Descripción de la base de datos - Gestión de visitas a propiedades
 Esta base de datos esta diseñada para gestionar visitas de inmobiliarias a distintas propiedades. En esta se presentan empleados, las propiedades, dueños, inquilinos. A continuación se muestran detalladamente los elementos principales de la base de datos:
 
 
@@ -47,6 +51,9 @@ Esta base de datos esta diseñada para gestionar visitas de inmobiliarias a dist
 - Registra las visitas de los inquilinos
 - Atributos: VisitaID, inquilinoID, propiedadID, empleadoID, fecha, cancelacion
 
+8- **Garante:**
+- Registra los garantes de cada inquilino
+- Atributos: GaranteID, nombre, email, inquilinoID
 
 ### Problemática resuelta:
 Esta base de datos permite administrar de manera eficiente el proceso de visitas de hacia las propiedades desde quienes serán los empleados encargados de las mismas y quienes serán los inquilinos. Aborda algunos aspectos:
@@ -55,34 +62,13 @@ Esta base de datos permite administrar de manera eficiente el proceso de visitas
 
 En conclusión, esta base de datos proporciona una estructura para organizar y gestionar eficientemente las operaciones de visitas a las propiedades optimizando el trabajo.
 
+**Tabla Inquilino**
 
+| COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
+|----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
+| inquilinoID    | INT          | PK            | No admite datos nulos y es autoincremental.                                                          |
+| Nombre         | VARCHAR(60)  |               | Nombre del inquilino              |
+| Email          | VARCHAR(100) |    UNIQUE     | No admite datos nulos                                                                                  |
+| Tiene Garante  | BOOLEAN      |    UNIQUE     | Por default coloca que este no tiene garante                 |
+| Dni            | INT          |    UNIQUE     | Debe ser unico               |
 
-
-+------------------+        +-----------------------+        +------------------+
-|      INQUILINO   |        |       VISITA          |        |     INMOBILIARIA |
-+------------------+        +-----------------------+        +------------------+
-| inquilinoID (PK) |<>-----o| idReserva (PK)        |o-------| idRestaurante(PK)|
-| nombre           |        | idCliente (FK)        |        | nombre           |
-| telefono         |        | idMesa (FK)           |        | direccion        |
-| correo           |        | idEmpleado (FK)       |        | telefono         |
-+------------------+        | fecha                 |        +------------------+
-                            | cancelacion           |                  |
-                            +-----------------------+                  |
-                                    |                                  |
-                                    |                                  |
-                                    v                                  v
-+------------------+        +------------------+             +-------------------+
-|     Empleado     |        |      Mesa        |             |     Dueno         |
-+------------------+        +------------------+             +-------------------+
-| idEmpleado (PK)  |        | idMesa (PK)      |             | idDueno (PK)      |
-| nombre           |        | idRestaurante(FK)|             | nombre            |
-| telefono         |        | capacidad        |             | correo            |
-| correo           |        | disponible       |             | telefono          |
-| idRestaurante(FK)|        +------------------+             +-------------------+
-+------------------+                  |
-                             +-------------------+
-                             |   TipoReserva     |
-                             +-------------------+
-                             | idTipoReserva(PK) |
-                             | tipo              |
-                             +-------------------+
