@@ -111,19 +111,37 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 | Ambientes      | VARCHAR(200) |               | Por default coloca que este no tiene garante                                                           |
 | Jardin         | BOOLEAN      |               | Indica si tiene jardin o no                                                                            |
 | Banos          | INT          |               | Por default coloca que este tiene 1 solo baño                                                           |
+| Precio         | INT          |               | No acepta nulos                                                                     |
+| Ocupada        | BOOLEAN      |               | No acepta nulos                                                                    |
+| Moneda         | ENUM         |               | No acepta nulos y toma ARS como default                                                                     |
 | ContratoID     | INT          |FK             | Proviene de la tabla contrato                                                          |
 | inmobiliariaID | INT          |FK             | Proviene de la tabla inmobiliaria                                                           |
 
 
-**Tabla Inmobiliaria**
+**Tabla Empleado**
 | COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
 |----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
-| inmobiliariaID | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
-| Nombre         | VARCHAR(60)  |               | Nombre de la inmobiliaria                                                                             |
-| Telefono       | VARCHAR(20)  |               | Telefono de la inmobiliaria                                                                           |
-| Ubicación      | VARCHAR(200) |               | Por default coloca que este no tiene garante                                                          |
-| DuenoID        | INT          | FK            | Proviene de la tabla dueño                                                                            |
+| EmpleadoID     | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
+| Nombre         | VARCHAR(60)  |               | Nombre de los empleados                                                                               |
+| InmobiliariaID | VARCHAR(20)  |FK             | Proviene de la tabla inmobiliaria                                                                     |
 
 
+**Tabla Visita**
+| COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
+|----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
+| VisitaID       | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
+| InquilinoID    | INT          | FK            | Proviene de la tabla inquilino                                                                       |
+| PropiedadID    | INT          | FK            | Proviene de la tabla propiedad                                                                     |
+| EmpleadoID     | INT          | FK            | Proviene de la tabla empleado                                                                     |
+| Fecha          | DATETIME     |               | Fecha de la visita                                                                    |
+| Cancelacion    | DATETIME     |               | Por default es NULL                                                                    |
 
+
+**Tabla Garante**
+| COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
+|----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
+| GaranteID      | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
+| Nombre         | INT          |               | Nombre del garante                                                                       |
+| Email          | INT          |               | Email del garante                                                                     |
+| InquilinoID    | INT          |               | Proviene de la tabla inquilino                                                                     |
 
