@@ -154,7 +154,7 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 ### Objetos de la base de datos
 ___
 
-## VISTAS
+# Documentación Vistas
 
 
 ## Vista: vw_inquilinos_con_garante
@@ -183,12 +183,55 @@ ORDER BY p.precio DESC
 ```
 
 
-**Vista: vw_visitas_realizadas
+##Vista: vw_visitas_realizadas
 
-*** Descripcion: Me trae información de todas las visitas que ya fueron realizadas al día de la fecha
+### Descripcion: Me trae información de todas las visitas que ya fueron realizadas al día de la fecha
 
 **Ejemplo de uso**
 ```sql
 SELECT * FROM vw_visitas_realizadas
 WHERE nombre_empleado = Juan Perez
 ```
+
+___
+
+# Documentación Triggers
+
+### Trigger: confirm_email_inquilino
+
+### Descripción: Utilizando una función permite verificar que el email del inquilino no se repita
+
+## Detalles
+- Tabla Afectada: Inquilino
+- Acción: Insert
+- Información registrada: email
+
+## Ejemplo
+- Se inserta un nuevo inquilino
+- El trigger revisa si el email insertado ya existe
+
+## Trigger: confirm_email_garante
+
+### Descripción: Utilizando una función permite verificar que el email del garante no se repita
+
+## Detalles
+- Tabla Afectada: Garante
+- Acción: Insert
+- Información registrada: email
+
+## Ejemplo
+- Se inserta un nuevo Garante
+- El trigger revisa si el email insertado ya existe
+
+### Trigger: calcular_duracion_en_dias
+
+### Descripción: Permite calcular la duración de dias del contrato a partir de una fecha
+
+## Detalles
+- Tabla Afectada: Contrato
+- Acción: Insert
+- Información registrada: duracion_en_dias, fecha_vto
+
+## Ejemplo
+- Se inserta un nuevo contrato
+- El trigger realiza un recuento de los días que faltan para que el contrato quede vencido
