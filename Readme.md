@@ -183,7 +183,7 @@ ORDER BY p.precio DESC
 ```
 
 
-##Vista: vw_visitas_realizadas
+## Vista: vw_visitas_realizadas
 
 ### Descripcion: Me trae información de todas las visitas que ya fueron realizadas al día de la fecha
 
@@ -199,39 +199,150 @@ ___
 
 ### Trigger: confirm_email_inquilino
 
-### Descripción: Utilizando una función permite verificar que el email del inquilino no se repita
+**Descripción: Utilizando una función permite verificar que el email del inquilino no se repita** 
 
-## Detalles
+**Detalles** 
 - Tabla Afectada: Inquilino
 - Acción: Insert
 - Información registrada: email
 
-## Ejemplo
+**Ejemplo** 
 - Se inserta un nuevo inquilino
 - El trigger revisa si el email insertado ya existe
 
 ## Trigger: confirm_email_garante
 
-### Descripción: Utilizando una función permite verificar que el email del garante no se repita
+**Descripción: Utilizando una función permite verificar que el email del garante no se repita** 
 
-## Detalles
+**Detalles** 
 - Tabla Afectada: Garante
 - Acción: Insert
 - Información registrada: email
 
-## Ejemplo
+**Ejemplo** 
 - Se inserta un nuevo Garante
 - El trigger revisa si el email insertado ya existe
 
 ### Trigger: calcular_duracion_en_dias
 
-### Descripción: Permite calcular la duración de dias del contrato a partir de una fecha
+**Descripción: Permite calcular la duración de dias del contrato a partir de una fecha** 
 
-## Detalles
+**Detalles** 
 - Tabla Afectada: Contrato
 - Acción: Insert
 - Información registrada: duracion_en_dias, fecha_vto
 
-## Ejemplo
+**Ejemplo** 
 - Se inserta un nuevo contrato
 - El trigger realiza un recuento de los días que faltan para que el contrato quede vencido
+
+
+___
+
+# Documentación de Stored Procedures
+
+### Procedure: sp_propiedades_a_desocuparse
+
+**Descripción: Este procedure almacena las propiedades que estan proximas a desocuparse**
+
+**Parámetros:**
+- dias_limites
+
+**Retorno:**
+- Mensaje de éxito o error
+
+**Ejemplo de uso**
+```sql
+CALL sp_propiedades_a_desocuparse(1200)
+```
+
+### Procedure: procedure_listar_propiedades_precio
+
+**Descripción: Este procedure me lista las propiedades en un rango de precio**
+
+**Parámetros:**
+- precio_min
+- precio_max
+- moneda_busqueda
+
+**Retorno:**
+- Mensaje de éxito o error
+
+**Ejemplo de uso**
+```sql
+CALL procedure_listar_propiedades_precio(50000, 100000, 'USD')
+```
+
+### Procedure: procedure_tipo_propiedad
+
+**Descripción: Este procedure me facilita el poder calcular el total de propiedades por tipo**
+
+**Parámetros:**
+- Ninguno
+
+**Retorno:**
+- Mensaje de éxito o error
+
+**Ejemplo de uso**
+```sql
+CALL procedure_tipo_propiedad()
+```
+
+### Procedure: procedure_obtener_empleado_visita
+
+**Descripción: Este procedure me dice la cantidad de visitas de cada empleado**
+
+**Parámetros:**
+- Ninguno
+
+**Retorno:**
+- Mensaje de éxito o error
+
+**Ejemplo de uso**
+```sql
+CALL procedure_obtener_empleado_visita()
+```
+
+___
+
+# Documentación de Funciones
+
+### Función: fn_estado_visita
+
+**Descripción: Esta función me ayuda a revisar el estado de la visita, si esta pendiente, a realizar o cancelada**
+
+**Parámetros:**
+- fecha_visita
+- cancelacion
+
+**Retorno:**
+- Cancelada si cancelacion no es nula
+- Realizada si la fecha_visita ya paso
+- Pendiete si ninguna de las anteriores se cumplió
+
+**Ejemplo de uso**
+```sql
+SELECT
+	  fn_estado_visita(fecha, cancelacion) AS estado_visita,
+    COUNT(*) AS total_visitas
+    FROM visita
+    GROUP BY fn_estado_visita(fecha, cancelacion)
+```
+
+### Función: fn_revisar_emails_duplicados
+
+**Descripción: Esta función revisa que los emails de los garantes e inquilinos no se repitan**
+
+**Parámetros:**
+- new_email
+
+**Retorno:**
+- El email existente
+
+**Ejemplo de uso**
+```sql
+SELECT
+   *,
+  fn_revisar_emails_duplicados(email) AS email_duplicado
+  FROM inquilino;
+```
