@@ -33,7 +33,7 @@ Esta base de datos esta diseñada para gestionar visitas de inmobiliarias a dist
 
 3- `Contrato:` 
 - Guarda información sobre que contiene el contrato de la propiedad
-- Atributos: contratoID, fechavto, duración
+- Atributos: contratoID, fechavto, duracion_en_dias
 
 4- `Inmobiliaria:` 
 - Almacena información sobre la inmobiliaria y datos de contacto
@@ -41,7 +41,7 @@ Esta base de datos esta diseñada para gestionar visitas de inmobiliarias a dist
 
 5- `Propiedad:`
 - Almacena información de la propiedad, sus dimensiones y caracteristicas
-- Atributos: propiedadID, ubicacion, departamento, ambientes, jardin, baños, dimensiones, contratoID, inmobiliariaID
+- Atributos: propiedadID, ubicacion, departamento, ambientes, jardin, baños, precio, moneda, ocupada contratoID, inmobiliariaID
 
 6- `Empleado:` 
 - Guarda información sobre los empleados de la inmobiliaria
@@ -61,6 +61,10 @@ Esta base de datos permite administrar de manera eficiente el proceso de visitas
 - Registro detallado de las características de la propiedad
 
 En conclusión, esta base de datos proporciona una estructura para organizar y gestionar eficientemente las operaciones de visitas a las propiedades optimizando el trabajo.
+
+
+
+
 
 **Tabla Inquilino**
 
@@ -106,9 +110,9 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 | COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
 |----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
 | propiedadID    | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
-| Ubicacion      | VARCHAR(200) |               | Nombre de la inmobiliaria                                                                             |
+| Ubicacion      | VARCHAR(200) |               | Ubicacion de la propiedad                                                                            |
 | Departamento   | BOOLEAN      |               | Por default es FALSE                                                                                  |
-| Ambientes      | VARCHAR(200) |               | Por default coloca que este no tiene garante                                                           |
+| Ambientes      | VARCHAR(200) |               | Ambientes de la propiedad                                                           |
 | Jardin         | BOOLEAN      |               | Indica si tiene jardin o no                                                                            |
 | Banos          | INT          |               | Por default coloca que este tiene 1 solo baño                                                           |
 | Precio         | INT          |               | No acepta nulos                                                                     |
@@ -123,7 +127,7 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 |----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
 | EmpleadoID     | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
 | Nombre         | VARCHAR(60)  |               | Nombre de los empleados                                                                               |
-| InmobiliariaID | VARCHAR(20)  |FK             | Proviene de la tabla inmobiliaria                                                                     |
+| InmobiliariaID | VARCHAR(20)  | FK            | Proviene de la tabla inmobiliaria                                                                     |
 
 
 **Tabla Visita**
@@ -143,5 +147,5 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 | GaranteID      | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
 | Nombre         | INT          |               | Nombre del garante                                                                       |
 | Email          | INT          |               | Email del garante                                                                     |
-| InquilinoID    | INT          |               | Proviene de la tabla inquilino                                                                     |
+| InquilinoID    | INT          | FK            | Proviene de la tabla inquilino                                                                     |
 
