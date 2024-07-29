@@ -149,3 +149,46 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 | Email          | INT          |               | Email del garante                                                                     |
 | InquilinoID    | INT          | FK            | Proviene de la tabla inquilino                                                                     |
 
+
+
+### Objetos de la base de datos
+___
+
+## VISTAS
+
+
+## Vista: vw_inquilinos_con_garante
+
+### Descripción: Esta vista muestra cuales son los inquilinos que tienen o no tienen garante
+
+### Columnas
+- InquilinoID: Trae el ID del inquilino
+- nombre: Trae el nombre del inquilino
+- email: Trae el email del inquilino
+
+**Ejemplo de consulta:**
+```sql
+SELECT * FROM vw_inquilinos_con_garante
+WHERE tiene_garante = "No"
+```
+
+##Vista: vw_propiedades_ocupadas
+
+### Descripción: Esta vista me trae todas las propiedades que ya estan ocupadas
+
+**Ejemplo de consulta**
+```sql
+SELECT * FROM vw_propiedades_ocupadas
+ORDER BY p.precio DESC
+```
+
+
+**Vista: vw_visitas_realizadas
+
+*** Descripcion: Me trae información de todas las visitas que ya fueron realizadas al día de la fecha
+
+**Ejemplo de uso**
+```sql
+SELECT * FROM vw_visitas_realizadas
+WHERE nombre_empleado = Juan Perez
+```
