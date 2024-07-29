@@ -86,9 +86,44 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 | COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
 |----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
 | contratoID     | INT          | PK            | No admite datos nulos y es autoincremental.                                                          |
-| Fecha_vto       | VARCHAR(60)  |  DATETIME             | Fecha de vencimiento del contrato             |
-| Duracion en dias          | INT |    UNIQUE     | Alterado por un Trigger                                                                                  |
+| Fecha_vto       | VARCHAR(60) |  DATETIME    | Fecha de vencimiento del contrato             |
+| Duracion en dias   | INT |    UNIQUE   | Alterado por un Trigger                                                                                  |
 | Tiene Garante  | BOOLEAN      |    UNIQUE     | Por default coloca que este no tiene garante                 |
 | Dni            | INT          |    UNIQUE     | Debe ser unico               |
+
+
+**Tabla Inmobiliaria**
+| COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
+|----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
+| inmobiliariaID | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
+| Nombre         | VARCHAR(60)  |               | Nombre de la inmobiliaria                                                                             |
+| Telefono       | VARCHAR(20)  |               | Telefono de la inmobiliaria                                                                           |
+| Ubicación      | VARCHAR(200) |               | Por default coloca que este no tiene garante                                                          |
+| DuenoID        | INT          | FK            | Proviene de la tabla dueño                                                                            |
+
+
+**Tabla Propiedad**
+| COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
+|----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
+| propiedadID    | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
+| Ubicacion      | VARCHAR(200) |               | Nombre de la inmobiliaria                                                                             |
+| Departamento   | BOOLEAN      |               | Por default es FALSE                                                                                  |
+| Ambientes      | VARCHAR(200) |               | Por default coloca que este no tiene garante                                                           |
+| Jardin         | BOOLEAN      |               | Indica si tiene jardin o no                                                                            |
+| Banos          | INT          |               | Por default coloca que este tiene 1 solo baño                                                           |
+| ContratoID     | INT          |FK             | Proviene de la tabla contrato                                                          |
+| inmobiliariaID | INT          |FK             | Proviene de la tabla inmobiliaria                                                           |
+
+
+**Tabla Inmobiliaria**
+| COLUMNA        | TIPO DE DATO | TIPO DE CLAVE | DESCRIPCIÓN                                                                                           |
+|----------------|--------------|---------------|-------------------------------------------------------------------------------------------------------|
+| inmobiliariaID | INT          | PK            | No admite datos nulos y es autoincremental.                                                           |
+| Nombre         | VARCHAR(60)  |               | Nombre de la inmobiliaria                                                                             |
+| Telefono       | VARCHAR(20)  |               | Telefono de la inmobiliaria                                                                           |
+| Ubicación      | VARCHAR(200) |               | Por default coloca que este no tiene garante                                                          |
+| DuenoID        | INT          | FK            | Proviene de la tabla dueño                                                                            |
+
+
 
 
