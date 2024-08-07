@@ -4,17 +4,6 @@ CREATE DATABASE IF NOT EXISTS proyecto_coder;
 
 USE proyecto_coder;
 
--- TABLA VISITA
-CREATE TABLE visita(
-visitaID INT AUTO_INCREMENT PRIMARY KEY,
-inquilinoID INT,
-propiedadID INT,
-empleadoID INT,
-fecha DATETIME,
-cancelacion DATETIME DEFAULT NULL
-)COMMENT "Tabla con información con la visita a las distintas propiedades";
-
-
 -- TABLA INQUILINO
 CREATE TABLE inquilino(
 inquilinoID INT AUTO_INCREMENT PRIMARY KEY,
@@ -23,6 +12,7 @@ email VARCHAR(100) UNIQUE NOT NULL,
 tiene_garante BOOLEAN DEFAULT FALSE,
 dni INT UNIQUE
 )COMMENT "Tabla con informacion de los distintos inquilinos";
+
 
 -- TABLA DUEÑO
 CREATE TABLE dueno(
@@ -75,6 +65,15 @@ email VARCHAR(100),
 inquilinoID INT
 )COMMENT "Tabla con informacion del garante del inquilino";
 
+-- TABLA VISITA
+CREATE TABLE visita(
+visitaID INT AUTO_INCREMENT PRIMARY KEY,
+inquilinoID INT,
+propiedadID INT,
+empleadoID INT,
+fecha DATETIME,
+cancelacion DATETIME DEFAULT NULL
+)COMMENT "Tabla con información con la visita a las distintas propiedades";
 
 -- FOREIGN KEYS Y ALTERACIONES
 ALTER TABLE empleado
@@ -124,3 +123,8 @@ ALTER TABLE propiedad
 ALTER TABLE contrato
 	ADD COLUMN duracion_en_dias INT
 	AFTER fecha_vto
+
+
+select
+*
+from vw_inquilinos_con_garante
