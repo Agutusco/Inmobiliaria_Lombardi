@@ -1,6 +1,14 @@
 # Entrega Proyecto MySQL
 
-## Segunda Pre-Entrega del proyecto final
+## Entrega del proyecto final
+
+<p>Alumno: Agustín Lombardi</p>
+
+<p>Comisión: 57190</p>
+
+<p>Tutor: Leonel Lo Presti</p>
+
+<p>Docente: Anderson Michel Torres</p>
 
 ##  Creación de una DB para visitas de una inmobiliaria
 
@@ -152,6 +160,21 @@ En conclusión, esta base de datos proporciona una estructura para organizar y g
 
 
 ### Objetos de la base de datos
+___
+
+# Documentación Usuarios y permisos
+***Roles:***
+ En esta DB al haber pocos empleados, no existen roles y son muy pocos los que tienen permisos.
+
+ ***Usuarios:***
+ `Alma:` Una de los dueños de la inmobiliaria la cual tiene todos los privilegios de la base de datos. Su contraseña es 032014.
+
+ `Felipe:` Otro dueño de la inmobiliaria la cual tiene todos los privilegios de la base de datos. Su contraseña es 092009
+
+ `Juan:` Uno de los empleados con mayor cargo en la inmobiliaria tiene todos los privilegios en la tabla propiedad y en la tabla visita. Su contraseña es 789
+ 
+ `Ana:` Uno de los empleados con mayor cargo en la inmobiliaria tiene todos los privilegios en la tabla propiedad y en la tabla visita. Su contraseña es 987
+
 ___
 
 # Documentación Vistas
